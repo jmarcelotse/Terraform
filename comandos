@@ -1,0 +1,31 @@
+Pre-requisitos
+AWS
+Dowloads Terraform
+https://developer.hashicorp.com/terraform/downloads?product_intent=terraform
+
+# Precisa da chave criado no usuario aws
+# Depois de ter a chave usado o comando para configurar
+aws configure
+
+#gerando chave ssh
+ssh-keygen -f terraformX -t rsa
+
+# Deploy pela primeira vez para baixar as dependencias
+terraform init
+terraform plan
+terraform apply
+terraform show
+terraform refresh
+
+#verificar o security groups
+aws ec2 describe-security-groups
+#Criando security groups
+
+#uma forma de apagar o recurso
+1 apaga do arquivo tf as linha do recurso
+2 por linha de comando como exemplo abaixo:
+terraform destroy -taget aws_instance.dev4
+# se tiver dependencia. o terraform mata a dependencia que mata autimaticamente o principal
+terraform destroy -taget aws_s3_bucket.dev4
+3 usar comentarios no que quer destuir
+
